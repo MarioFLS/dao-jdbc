@@ -35,10 +35,18 @@ public class App {
 
     System.out.println("\n==== Inserir novo Vendedor");
     Seller newSeller = new Seller(null, "Fernando", "email@emailTop.com", new Date(), 4000d, department);
-
     sellerDao.insert(newSeller);
-
     System.out.println("Inserido! Id do novo vendedor = " + newSeller.getId());
+
+    System.out.println("\n=== Atualizar Vendedor");
+    seller = sellerDao.findById(1);
+    seller.setName("Martha Waine");
+    sellerDao.update(seller);
+    System.out.println("Atualizado com sucesso");
+
+    System.out.println("\n=== Deletar um Vendedor");
+    sellerDao.deleteById(2);
+    System.out.println("Deletado com sucesso");
 
   }
 }
