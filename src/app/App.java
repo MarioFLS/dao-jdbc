@@ -51,11 +51,20 @@ public class App {
     // System.out.println("Deletado com sucesso");
 
     DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
+
     System.out.println("\n=== Pegando todos os Departamentos");
     List<Department> listDepartaments = departmentDao.findAll();
 
     for (Department department : listDepartaments) {
       System.out.println(department);
     }
+
+    System.out.println("\n=== Deletar departamento");
+    departmentDao.deleteById(4);
+    System.out.println("Deletado com sucesso");
+
+    System.out.println("\n=== Procurar Departamento por ID");
+    Department departmentFindId = departmentDao.findById(3);
+    System.out.println(departmentFindId);
   }
 }
